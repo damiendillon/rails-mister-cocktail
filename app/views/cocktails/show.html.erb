@@ -1,0 +1,13 @@
+SHOW
+<h2>
+<%= @cocktail.name %>
+</h2>
+
+<h3>
+  Recipe
+</h3>
+
+<p>
+<%= link_to "Add the doses", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
+</p>
+<%= link_to "Back to all", cocktails_path, class: "btn btn-primary" %>
