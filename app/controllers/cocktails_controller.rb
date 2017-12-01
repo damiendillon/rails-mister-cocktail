@@ -19,6 +19,9 @@ class CocktailsController < ApplicationController
   end
 
   def show
+    #The view cant do anything without variables in which to store the info in, or print from
+    @dose = Dose.new
+    @ingredients = Ingredient.all
   end
 
   private

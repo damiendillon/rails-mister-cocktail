@@ -7,7 +7,19 @@ SHOW
   Recipe
 </h3>
 
-<p>
-<%= link_to "Add the doses", new_cocktail_dose_path(@cocktail), class: "btn btn-primary" %>
-</p>
+
+
+<% @cocktail.doses.each do |c| %>
+<p><%= c.description %> </p>
+<p><%= c.ingredient.name %> </p>
+<p><%= link_to "Delete", dose_path(c), class: "btn btn-primary", method: :delete %></p> <br>
+<% end %>
+
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+<%= f.input :description %>
+<%= f.input :ingredient_id, collection: @ingredients %>
+<%= f.submit %>
+<% end %>
+
 <%= link_to "Back to all", cocktails_path, class: "btn btn-primary" %>
